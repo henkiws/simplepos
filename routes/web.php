@@ -24,10 +24,11 @@ Route::get('logout', 'LoginController@logout');
 // Route::get('asign', 'LoginController@asignRole');
 
 Route::group(['middleware' => ['systemRules:admin']], function () {
-    // Route::get('admin', 'AdminController@index');
     Route::resource('admin', 'AdminController');
 });
 
 Route::group(['middleware' => ['systemRules:kasir']], function () {
     Route::get('kasir', 'KasirController@index');
+    Route::post('kasir/list', 'KasirController@list');
+    Route::post('kasir/store', 'KasirController@store');
 });

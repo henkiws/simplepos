@@ -19,4 +19,8 @@ class product extends Model
         'created_at', 'updated_at',
     ];
 
+    public function price(){
+        return $this->belongsTo(product_price::class,'id','product_id');
+    }
+
 }
